@@ -20,6 +20,7 @@ function ChatInput({
   setChatsRefresh,
 }) {
     const [uploadStatus, setUploadStatus] = useState("")
+    const [uploading, setUploading] = useState(false)
     const [chatError, setChatError] = useState("")
     const textareaRef = useRef(null)
     useEffect(() => {
@@ -55,7 +56,7 @@ function ChatInput({
   }
 
   try {
-    setLoading(true)
+    setUploading(true)
     setUploadStatus("Uploading and indexing...")
 
     const response = await uploadDocument(file)
@@ -75,7 +76,10 @@ setSelectedDocumentName(
 setSelectedDocument({
   document_id: response.document_id,
   document_name: response.document_name,
-  status: "Indexed",
+  pages: response.pages,
+  size: response.size,
+  status: response.status,
+  created_at: response.created_at,
 })
 
 setMessages([])
@@ -88,7 +92,7 @@ setDocumentsRefresh((previous) => previous + 1)
   `Upload failed for "${file.name}". Please try again.`
 )
   } finally {
-    setLoading(false)
+    setUploading(false)
     event.target.value = ""
 
     setTimeout(() => {
@@ -162,7 +166,7 @@ setDocumentsRefresh((previous) => previous + 1)
 
       <label
             className={`upload-button ${
-                loading ? "upload-button-disabled" : ""
+                loading || uploading ? "upload-button-disabled" : ""
             }`}
             >
             <img
@@ -174,7 +178,7 @@ setDocumentsRefresh((previous) => previous + 1)
                 type="file"
                 accept=".pdf,application/pdf"
                 onChange={handleFileSelect}
-                disabled={loading}
+                disabled={loading || uploading}
                 hidden
             />
             </label>

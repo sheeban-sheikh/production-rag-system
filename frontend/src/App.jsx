@@ -127,6 +127,9 @@ function App() {
               setSelectedDocumentId={setSelectedDocumentId}
               setSelectedDocumentName={setSelectedDocumentName}
               setDocumentsRefresh={setDocumentsRefresh}
+              setSelectedChatId={setSelectedChatId}
+              setMessages={setMessages}
+              setChatsRefresh={setChatsRefresh}
               documentInfoOpen={documentInfoOpen}
               setDocumentInfoOpen={setDocumentInfoOpen}
             />

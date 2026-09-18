@@ -105,3 +105,14 @@ def delete_chat(chat_id):
 
 def chat_exists(chat_id):
     return chat_id in chat_histories
+def delete_chats_by_document(document_id):
+    chat_ids_to_delete = [
+        chat_id
+        for chat_id, chat_document_id in chat_documents.items()
+        if chat_document_id == document_id
+    ]
+
+    for chat_id in chat_ids_to_delete:
+        delete_chat(chat_id)
+
+    return len(chat_ids_to_delete)

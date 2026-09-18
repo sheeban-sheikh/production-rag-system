@@ -49,8 +49,11 @@ function DocumentInfo({
     setSelectedDocumentId,
     setSelectedDocumentName,
     setDocumentsRefresh,
+    setSelectedChatId,
+    setMessages,
+    setChatsRefresh,
     documentInfoOpen,
-  setDocumentInfoOpen,
+    setDocumentInfoOpen,
 }) {
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const [showSuccessMessage, setShowSuccessMessage] = useState(false)
@@ -281,11 +284,17 @@ if (!selectedDocument) {
 
                             setShowDeleteModal(false)
 
-                            setSelectedDocument(null)
+                           setSelectedDocument(null)
                             setSelectedDocumentId(null)
                             setSelectedDocumentName("")
+                            setSelectedChatId(null)
+                            setMessages([])
 
                             setDocumentsRefresh(
+                                (previous) => previous + 1
+                            )
+
+                            setChatsRefresh(
                                 (previous) => previous + 1
                             )
                             setShowSuccessMessage(true)

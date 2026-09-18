@@ -10,6 +10,7 @@ from src.vector_store import (
     get_document_created_at,
     delete_document
 )
+from src.chat_history import delete_chats_by_document
 from datetime import datetime, timezone
 from src.ingestion import add_document
 
@@ -93,11 +94,23 @@ async def upload_document(file: UploadFile = File(...)):
         file_path.write_bytes(contents)
 
         document_id = add_document(file_path,original_filename=file.filename)
+        reader = PdfReader(str(file_path))
+        pages = len(reader.pages)
+        size = file_path.stat().st_size
+
+        created_at = get_document_created_at(
+            load_vector_store(),
+            document_id
+        )
 
         return {
             "message": "Document uploaded and indexed successfully.",
             "document_id": document_id,
-            "document_name": file.filename
+            "document_name": file.filename,
+            "pages": pages,
+            "size": size,
+            "status": "Indexed",
+            "created_at": created_at
         }
 
     except Exception as e:
@@ -161,6 +174,8 @@ def delete_document_by_id(document_id: str):
     vector_store = load_vector_store()
 
     documents = get_documents(vector_store)
+    print("DELETE REQUESTED:", document_id)
+    print("AVAILABLE DOCUMENTS:", documents)
 
     if document_id not in documents:
         raise HTTPException(
@@ -170,14 +185,19 @@ def delete_document_by_id(document_id: str):
 
     try:
         deleted_chunks = delete_document(
-            vector_store,
-            document_id
+        vector_store,
+        document_id
+        )
+
+        deleted_chats = delete_chats_by_document(
+        document_id
         )
 
         return {
-            "message": "Document deleted successfully.",
-            "document_id": document_id,
-            "deleted_chunks": deleted_chunks
+        "message": "Document deleted successfully.",
+        "document_id": document_id,
+        "deleted_chunks": deleted_chunks,
+        "deleted_chats": deleted_chats
         }
 
     except Exception as e:
