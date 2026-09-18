@@ -173,29 +173,29 @@ The AI/RAG layer consists of:
 
 The retrieval process uses a two-stage approach:
 
-    ```text
-    User Query
-        ↓
-    Query Rewriting
-        ↓
-    Metadata Filtering
-        ↓
-    Vector Similarity Search
-        ↓
-    Top-K Candidates
-        ↓
-    Cross-Encoder Reranking
-        ↓
-    Top-N Relevant Chunks
-        ↓
-    Gemini LLM
-        ↓
-    Answer + Sources 
+```text
+User Query
+    ↓
+Query Rewriting
+    ↓
+Metadata Filtering
+    ↓
+Vector Similarity Search
+    ↓
+Top-K Candidates
+    ↓
+Cross-Encoder Reranking
+    ↓
+Top-N Relevant Chunks
+    ↓
+Gemini LLM
+    ↓
+Answer + Sources
 ```
 
 ### High-Level System Architecture
 
-```
+```text
                     ┌─────────────────────┐
                     │   React + Vite      │
                     │      Frontend       │
@@ -232,8 +232,11 @@ The retrieval process uses a two-stage approach:
                                ▼
                        Answer + Sources
 ```
+
 ### Document Indexing Flow
-```PDF Upload
+
+```text
+PDF Upload
     ↓
 PDF Loader
     ↓
@@ -247,7 +250,9 @@ ChromaDB
 ```
 
 ### Query Processing Flow
-```User Query
+
+```text
+User Query
     ↓
 Conversation History
     ↓
@@ -265,6 +270,7 @@ Gemini LLM
     ↓
 Answer + Source References
 ```
+
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -382,6 +388,7 @@ production-rag-system/
 ├── uv.lock
 └── README.md
 ```
+
 > **Note:** `data/`, `chroma_db/`, and `.env` are local/runtime resources and should not be committed to GitHub.
 
 ## 📋 Prerequisites
