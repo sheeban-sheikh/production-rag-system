@@ -1,4 +1,4 @@
-from sentence_transformers import CrossEncoder
+
 
 from src.config import (
     RERANKER_MODEL,
@@ -11,6 +11,7 @@ from src.logger import logger
 reranker = None
 
 if USE_CROSS_ENCODER:
+    from sentence_transformers import CrossEncoder
     reranker = CrossEncoder(RERANKER_MODEL)
 
 

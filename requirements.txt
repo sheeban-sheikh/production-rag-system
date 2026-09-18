@@ -12,5 +12,3 @@ uvicorn
 python-multipart
 
 langchain-google-genai
-langchain-huggingface
-sentence-transformers
