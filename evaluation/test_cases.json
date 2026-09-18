@@ -1,0 +1,52 @@
+[
+    {
+        "question": "What is CloudSphere?",
+        "expected_answer": "CloudSphere is a cloud infrastructure management platform developed by CloudNova Technologies.",
+        "expected_pages": [1]
+    },
+    {
+        "question": "What are the pricing plans of CloudSphere?",
+        "expected_answer": "Basic costs 699 rupees per user per month, Business costs 1299 rupees per user per month and includes advanced monitoring, and Enterprise uses custom pricing and includes dedicated technical support.",
+        "expected_pages": [1, 2]
+    },
+    {
+        "question": "Where is CloudNova Technologies headquartered?",
+        "expected_answer": "CloudNova Technologies is headquartered in Mumbai, India.",
+        "expected_pages": [1]
+    },
+    {
+        "question": "What technologies are used in CloudSphere's backend?",
+        "expected_answer": "CloudSphere's backend services are primarily written in Python. PostgreSQL is used for transactional data and Redis is used for caching.",
+        "expected_pages": [1]
+    },
+    {
+        "question": "What is the CEO of CloudNova's favorite food?",
+        "expected_answer": "This information is not provided in the document.",
+        "expected_pages": []
+    },
+    {
+    "question": "Which city is the headquarters of CloudNova Technologies located in?",
+    "expected_answer": "CloudNova Technologies is headquartered in Mumbai, India.",
+    "expected_pages": [1]
+},
+{
+    "question": "What are the pricing plans available for CloudSphere and what does each plan include?",
+    "expected_answer": "CloudSphere offers three plans: Basic costs 699 rupees per user per month, Business costs 1299 rupees per user per month and includes advanced monitoring, and Enterprise uses custom pricing and includes dedicated technical support.",
+    "expected_pages": [1, 2]
+},
+{
+    "question": "Which technologies power CloudSphere's backend system?",
+    "expected_answer": "CloudSphere's backend services are primarily written in Python. PostgreSQL is used for transactional data and Redis is used for caching.",
+    "expected_pages": [1]
+},
+{
+    "question": "Who is the founder of CloudNova Technologies?",
+    "expected_answer": "This information is not provided in the document.",
+    "expected_pages": []
+},
+{
+    "question": "How does the Business plan differ from the Basic plan in CloudSphere?",
+    "expected_answer": "The Basic plan costs 699 rupees per user per month, while the Business plan costs 1299 rupees per user per month and includes advanced monitoring.",
+    "expected_pages": [1, 2]
+}
+]

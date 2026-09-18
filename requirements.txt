@@ -1,0 +1,16 @@
+pypdf
+
+langchain
+langchain-community
+langchain-core
+langchain-chroma
+
+python-dotenv
+
+fastapi
+uvicorn
+python-multipart
+
+langchain-google-genai
+langchain-huggingface
+sentence-transformers
