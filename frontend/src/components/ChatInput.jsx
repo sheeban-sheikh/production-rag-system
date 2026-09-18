@@ -3,7 +3,6 @@ import {
   sendMessage,
   createChat,
   uploadDocument,
-  getDocument,
 } from "../services/api"
 function ChatInput({
   query,
@@ -61,27 +60,26 @@ function ChatInput({
 
     const response = await uploadDocument(file)
 
-    const uploadedDocument = await getDocument(
-    response.document_id
-    )
-
-    setUploadStatus(
+setUploadStatus(
   `"${file.name}" uploaded successfully.`
 )
 
-    setSelectedDocumentId(
-    uploadedDocument.document_id
-    )
+setSelectedDocumentId(
+  response.document_id
+)
 
-    setSelectedDocumentName(
-    uploadedDocument.document_name
-    )
+setSelectedDocumentName(
+  response.document_name
+)
 
-    setSelectedDocument(
-    uploadedDocument
-    )
-    setMessages([])
-    setDocumentsRefresh((previous) => previous + 1)
+setSelectedDocument({
+  document_id: response.document_id,
+  document_name: response.document_name,
+  status: "Indexed",
+})
+
+setMessages([])
+setDocumentsRefresh((previous) => previous + 1)
 
   } catch (error) {
     console.error("Upload failed:", error)
