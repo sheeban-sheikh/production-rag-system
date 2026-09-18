@@ -7,8 +7,6 @@ from src.chat_history import get_chat_document, chat_exists
 
 router = APIRouter()
 
-vector_store = load_vector_store()
-
 
 class ChatRequest(BaseModel):
     query: str
@@ -30,7 +28,8 @@ def chat(request: ChatRequest):
             status_code=404,
             detail="Document associated with chat not found."
         )
-
+    vector_store = load_vector_store()
+    
     try:
         response = process_query(
             query=request.query,
