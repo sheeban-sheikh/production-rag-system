@@ -110,6 +110,12 @@ Users can ask questions about the selected document and receive contextual answe
 
 ![RAG Assistant - Conversational RAG](screenshots/conversation.png)
 
+## 🎥 Demo
+
+Watch the complete RAG Assistant demo:
+
+[▶️ Watch Demo Video](demo/rag-assistant-demo.mp4)
+
 ## 🏗️ Architecture
 
 The application follows a **React + FastAPI + RAG** architecture with a modular backend design.
