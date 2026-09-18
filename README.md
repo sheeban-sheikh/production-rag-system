@@ -114,7 +114,7 @@ Users can ask questions about the selected document and receive contextual answe
 
 Watch the complete RAG Assistant demo:
 
-[▶️ Watch Demo Video](demo/rag-assistant-demo.mp4)
+[▶️ Watch Full Demo](https://drive.google.com/file/d/17fnPfrLio_6NwPT3FuLUV-pkXwmxH5QP/view?usp=sharing)
 
 ## 🏗️ Architecture
 
